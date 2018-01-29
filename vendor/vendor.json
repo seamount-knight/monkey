@@ -1,0 +1,11 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"path": "github.com/spf13/viper",
+			"revision": ""
+		}
+	],
+	"rootPath": "monkey"
+}
