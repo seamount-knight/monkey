@@ -1,10 +1,9 @@
 package main
 
-
 import (
 	"monkey/cmd"
 )
 
-func main(){
+func main() {
 	cmd.Execute()
 }

@@ -1,0 +1,26 @@
+version: 2
+
+services:
+  monkey:
+    image: monkey
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: database
+      DB_PASSWORD: "123456"
+      DB_USER: monkey
+      DB_PORT: "5432"
+      DB_NAME: monkeydb
+    volumes:
+      - $GOPATH/src/monkey:/go/src/monkey
+    ports:
+      - "8080:80"
+    links:
+      - database
+  database:
+    image: index.alauda.cn/library/postgres:9.3
+    environment:
+      POSTGRES_PASSWORD: "123456"
+      POSTGRES_USER: "monkey"
+      POSTGRES_DB: "monkeydb"
