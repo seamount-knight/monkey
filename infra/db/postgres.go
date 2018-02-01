@@ -9,7 +9,7 @@ func NewPostgresHandler(opts DatabaseConnectionOpts) (*sql.DB, error) {
 	postgresOpts := NewPostgresConnectionOpts(opts)
 	connectionString := postgresOpts.GetConnString()
 
-	db, err := sql.Open(Postgres, connectionString)
+	db, err := sql.Open(Postgres.String(), connectionString)
 	if err != nil {
 		return nil, err
 	}

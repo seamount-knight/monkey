@@ -9,7 +9,7 @@ func NewMySQLHandler(opts DatabaseConnectionOpts) (*sql.DB, error) {
 	mySQLOpts := NewMySQLConnectionOpts(opts)
 	connectionString := mySQLOpts.GetConnString()
 
-	db, err := sql.Open(MySQL, connectionString)
+	db, err := sql.Open(MySQL.String(), connectionString)
 	if err != nil {
 		return nil, err
 	}

@@ -5,6 +5,8 @@ import (
 	"database/sql"
 	"fmt"
 	"gopkg.in/doug-martin/goqu.v4"
+	"monkey/infra/diagnose"
+	"time"
 )
 
 type Engine string
@@ -30,7 +32,7 @@ func New(engine Engine, opts DatabaseConnectionOpts) (*goqu.Database, error) {
 		fallthrough
 	default:
 		engine = Postgres
-		db, err = NewMySQLHandler(opts)
+		db, err = NewPostgresHandler(opts)
 	}
 	if err != nil {
 		return nil, err
@@ -88,4 +90,31 @@ func (opts *DatabaseConnectionOpts) GetParams() string {
 	}
 	str := buffer.String()
 	return str[:len(str)-1]
+}
+
+type DatabaseChecker struct {
+	db *goqu.Database
+}
+
+func NewChecker(db *goqu.Database) *DatabaseChecker {
+	return &DatabaseChecker{
+		db: db,
+	}
+}
+
+func (d *DatabaseChecker) Diagnose() diagnose.ComponentReport {
+	var (
+		err error
+		start time.Time
+	)
+	report := diagnose.NewReport("database")
+	start = time.Now()
+
+	tx, err := d.db.Db.Begin()
+	if err != nil {
+		tx.Rollback()
+	}
+	report.Check(err, "Database ping failed", "Check environment variables or database health")
+	report.AddLatency(start)
+	return *report
 }

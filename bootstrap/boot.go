@@ -3,11 +3,12 @@ package bootstrap
 import (
 	"github.com/spf13/viper"
 	"gopkg.in/doug-martin/goqu.v4"
-	"monkey/infra/db"
 	"monkey/infra/diagnose"
 	"monkey/infra/http"
 	"monkey/infra/log"
 	"monkey/inter"
+	"time"
+	"monkey/infra/db"
 )
 
 func Server() {
@@ -20,7 +21,7 @@ func Server() {
 	dbclient, logger, controller = Bootstrap()
 
 	diagnoser, _ = diagnose.New()
-	//diagnoser.Add()
+	diagnoser.Add(db.NewChecker(dbclient))
 
 	logger.Infof("Starting %s...", viper.GetString("COMPONENT"))
 
