@@ -3,19 +3,24 @@ package db
 import (
 	"database/sql"
 	"fmt"
+	_ "github.com/lib/pq"
 )
 
 func NewPostgresHandler(opts DatabaseConnectionOpts) (*sql.DB, error) {
 	postgresOpts := NewPostgresConnectionOpts(opts)
 	connectionString := postgresOpts.GetConnString()
 
+	fmt.Println(connectionString)
+
 	db, err := sql.Open(Postgres.String(), connectionString)
 	if err != nil {
+		fmt.Println(err.Error())
 		return nil, err
 	}
 	db.SetMaxOpenConns(opts.MaxConnections)
 	db.SetMaxIdleConns(opts.MaxIdleConnections)
 	if err := db.Ping(); err != nil {
+		fmt.Println(err.Error())
 		return nil, err
 	}
 	return db, nil

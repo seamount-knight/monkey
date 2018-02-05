@@ -3,6 +3,7 @@ package db
 import (
 	"database/sql"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func NewMySQLHandler(opts DatabaseConnectionOpts) (*sql.DB, error) {

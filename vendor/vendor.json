@@ -33,6 +33,12 @@
 			"revisionTime": "2018-01-26T03:46:11Z"
 		},
 		{
+			"checksumSHA1": "ZbU8qGzETzJZ2t30LmHxla5PLMY=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "bc14601d1bd56421dd60f561e6052c9ed77f9daf",
+			"revisionTime": "2018-01-25T05:47:45Z"
+		},
+		{
 			"checksumSHA1": "WX1+2gktHcBmE9MGwFSGs7oqexU=",
 			"path": "github.com/golang/protobuf/proto",
 			"revision": "925541529c1fa6821df4e44ce2723319eb2be768",
@@ -106,6 +112,18 @@
 			"revisionTime": "2017-06-05T01:46:07Z"
 		},
 		{
+			"checksumSHA1": "V1a5/Ra9HXKNuArt5WKUqu+Jxt8=",
+			"path": "github.com/lib/pq",
+			"revision": "88edab0803230a3898347e77b474f8c1820a1f20",
+			"revisionTime": "2018-02-01T18:47:07Z"
+		},
+		{
+			"checksumSHA1": "ATnwV0POluBNQEMjPdylodz0oK0=",
+			"path": "github.com/lib/pq/oid",
+			"revision": "88edab0803230a3898347e77b474f8c1820a1f20",
+			"revisionTime": "2018-02-01T18:47:07Z"
+		},
+		{
 			"checksumSHA1": "w5RcOnfv5YDr3j2bd1YydkPiZx4=",
 			"path": "github.com/mattn/go-isatty",
 			"revision": "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c",
@@ -150,6 +168,10 @@
 			"path": "golang.org/x/text/unicode/norm",
 			"revision": "88f656faf3f37f690df1a32515b479415e1a6769",
 			"revisionTime": "2017-10-26T07:52:28Z"
+		},
+		{
+			"path": "google.golang.org/appengine/cloudsql",
+			"revision": ""
 		},
 		{
 			"checksumSHA1": "/M23tzfVu52Cns1yUFoh0VBkngw=",

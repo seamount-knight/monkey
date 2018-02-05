@@ -6,8 +6,8 @@ import (
 	"monkey/infra/db"
 )
 
-func GetDBConfig() *db.DatabaseConnectionOpts {
-	return db.NewDatabaseConnectionOpts(
+func GetDBConfig() db.DatabaseConnectionOpts {
+	return *db.NewDatabaseConnectionOpts(
 		viper.GetString("DB_HOST"),
 		viper.GetString("DB_NAME"),
 		viper.GetString("DB_USER"),
@@ -30,5 +30,5 @@ func GetDBEngine() db.Engine {
 
 func GetDB() (*goqu.Database, error) {
 	engine, connOpts := GetDBEngine(), GetDBConfig()
-	return db.New(engine, *connOpts)
+	return db.New(engine, connOpts)
 }

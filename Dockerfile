@@ -15,7 +15,7 @@ FROM index.alauda.cn/alaudaorg/alaudabase:alpine-supervisor-migrate-1
 WORKDIR /
 EXPOSE 80
 ENV COMPONENT="monkey"
-CMD ["monkey.sh"]
+CMD ["/monkey.sh"]
 
 COPY --from=builder /go/src/monkey/*.sh /
 COPY --from=builder /go/src/monkey/migrations /monkey/migrations
