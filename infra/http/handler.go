@@ -10,7 +10,7 @@ import (
 type Handler struct {
 }
 
-func (Handler) HandlerError(err error, ctx gin.Context, log log.Logger) {
+func (Handler) HandlerError(err error, ctx *gin.Context, log log.Logger) {
 	status := getErrorStatusCode(err)
 	log.Debugf("Error: %v - returning status: %d", err, status)
 	ctx.JSON(status, NewHTTPError(err))
@@ -51,11 +51,11 @@ func getErrorStatusCode(err error) int {
 }
 
 type HTTPError struct {
-	errors []error `json:"errors"`
+	Errors []error `json:"errors"`
 }
 
 func NewHTTPError(err ...error) *HTTPError {
 	return &HTTPError{
-		errors: err,
+		Errors: err,
 	}
 }

@@ -7,8 +7,8 @@ import (
 const TableName = "monkey"
 
 type Monkey struct {
-	UUID string
-	Name string
+	UUID string	`json:"uuid" db:"uuid"`
+	Name string	`json:"name" db:"name"`
 }
 
 func NewMonkey(name string) *Monkey {

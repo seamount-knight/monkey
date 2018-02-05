@@ -38,9 +38,21 @@ func (h *MonkeyHandler) AddRoutes(router *gin.RouterGroup) {
 }
 
 func (h *MonkeyHandler) ListMonkeys(ctx *gin.Context) {
-	ctx.String(http.StatusOK, "monkeys")
+	monkeys, err := h.controller.ListMonkeys()
+	if err != nil {
+		h.HandlerError(err, ctx, h.log)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, monkeys)
 }
 
 func (h *MonkeyHandler) RetrieveMonkey(ctx *gin.Context) {
-
+	uuid := ctx.Param("uuid")
+	monkey, err := h.controller.RetrieveMonkey(uuid)
+	if err != nil {
+		h.HandlerError(err, ctx, h.log)
+		return
+	}
+	ctx.JSON(http.StatusOK, monkey)
 }

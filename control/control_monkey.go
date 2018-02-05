@@ -27,7 +27,13 @@ func (this *MonkeyController) ListMonkeys() ([]*domain.Monkey, error) {
 }
 
 func (this *MonkeyController) RetrieveMonkey(uuid string) (*domain.Monkey, error) {
-	monkey, err := this.RetrieveMonkey(uuid)
+	this.log.Debugf("-----%v", domain.IsValidUUID(uuid))
+	if !domain.IsValidUUID(uuid) {
+		this.log.Debugf("uuid is invalid")
+		return nil, errors.New(domain.Source, errors.ErrorCodeInvalidArgs).
+			AddFieldError("uuid", "uuid is invalid")
+	}
+	monkey, err := this.store.RetrieveMonkey(uuid)
 	if err != nil {
 		return nil, errors.NewCommon(domain.Source, err).SetCode(errors.ErrorCodeDatabaseError)
 	}
