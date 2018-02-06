@@ -66,6 +66,10 @@ func (s *Server) AddVersionEndpoint(version int, relativePath string, handler Ro
 	return s
 }
 
+func (s *Server) GetApp() *gin.Engine {
+	return s.app
+}
+
 func (s *Server) Start() {
 	s.start = time.Now()
 	s.app.Run(fmt.Sprintf("%s:%s", s.config.Host, s.config.Port))

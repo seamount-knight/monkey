@@ -28,7 +28,7 @@ func Server() {
 	GetHTTPServer().
 		AddEndpoint("/_diagnose", http.NewDiagnoser(diagnoser)).
 		AddVersionEndpoint(
-			1, "/monkey",
+			1, "/monkeys",
 			inter.NewMonkeyHandler(controller, log.NewLogger("inter")),
 		).
 		Start()
