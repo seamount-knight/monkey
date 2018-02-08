@@ -36,6 +36,7 @@ func (this *MonkeyStore) RetrieveMonkey(uuid string) (*domain.Monkey, error) {
 			goqu.I("uuid"),
 			goqu.I("name"),
 		).
+		Prepared(true).
 		Order(
 			goqu.I("name").Asc(),
 		).Where(

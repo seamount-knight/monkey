@@ -9,6 +9,10 @@
 			"revisionTime": "2016-08-22T23:00:20Z"
 		},
 		{
+			"path": "github.com/bmizerany/assert",
+			"revision": ""
+		},
+		{
 			"checksumSHA1": "CSPbwbyzqA6sfORicn4HFtIhF/c=",
 			"path": "github.com/davecgh/go-spew/spew",
 			"revision": "87df7c60d5820d0f8ae11afede5aa52325c09717",
@@ -330,6 +334,12 @@
 			"revision": ""
 		},
 		{
+			"checksumSHA1": "WfiM+grLatLDuXKj1roCcRDod/4=",
+			"path": "gopkg.in/DATA-DOG/go-sqlmock.v1",
+			"revision": "d76b18b42f285b792bf985118980ce9eacea9d10",
+			"revisionTime": "2017-09-01T07:34:10Z"
+		},
+		{
 			"checksumSHA1": "/M23tzfVu52Cns1yUFoh0VBkngw=",
 			"path": "gopkg.in/doug-martin/goqu.v4",
 			"revision": "cd495d70a4ff280202e22a09de9502a3fe0b66cb",
@@ -346,6 +356,10 @@
 			"path": "gopkg.in/go-playground/validator.v8",
 			"revision": "5f1438d3fca68893a817e4a66806cea46a9e4ebf",
 			"revisionTime": "2017-07-30T05:02:35Z"
+		},
+		{
+			"path": "ub",
+			"revision": ""
 		}
 	],
 	"rootPath": "monkey"
